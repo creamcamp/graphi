@@ -17,6 +17,11 @@ const eventSchema = new Schema({
     date: {
         type: Date,
         required: true
+    },
+    creator: {
+        // Now pairing with the 'User' schema on name
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 
