@@ -17,7 +17,20 @@ query {
 ### Mutation `createEvent`
 
 ```graphql
-
+mutation {
+  createEvent(eventInput: {
+    title: "",
+    description: "",
+    price: 0.00,
+    date: "2021-12-24T17:05:00.471Z"
+  }) {
+    title,
+    date,
+    creator {
+      email
+    }
+  }
+}
 ```
 
 ```json
@@ -31,6 +44,36 @@ mutation($email: String!, $password: String!){
   createUser(userInput: { email: $email, password: $password }) {
     email,
     password
+  }
+}
+```
+
+### Mutation `createBooking`
+
+```graphql
+mutation {
+  bookEvent(eventId: "") {
+    event {
+      title,
+      description,
+      date
+      creator {
+        email
+      }
+    }
+  }
+}
+```
+
+### Mutation `cancelBooking`
+
+```graphql
+mutation {
+  cancelBooking(bookingId: "") {
+    title,
+    creator {
+      email
+    }
   }
 }
 ```
