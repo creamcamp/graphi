@@ -33,10 +33,6 @@ mutation {
 }
 ```
 
-```json
-
-```
-
 ### Mutation `createUser`
 
 ```graphql
