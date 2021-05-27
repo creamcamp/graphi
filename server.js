@@ -5,9 +5,21 @@ const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./graphql/schema/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
 
-const PORT = 3000;
+const STATUS_OK = 200;
+const PORT = 4000;
 
 const app = express();
+
+app.use((request, response, next) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    if (request.method === 'OPTIONS') {
+        return response.sendStatus(STATUS_OK);
+    }
+    next();
+});
 
 app.use('/graphql', graphqlHTTP({
     schema: graphqlSchema,
