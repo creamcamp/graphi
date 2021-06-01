@@ -1,5 +1,5 @@
 
-### Query ``
+### Query `events`
 ```graphql
 query {
   events {
