@@ -1,3 +1,4 @@
+# React and GraphQL events booking service
 
 ### Query `events`
 ```graphql
